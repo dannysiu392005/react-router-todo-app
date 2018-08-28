@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from './Home';
+import AddItem from './AddItem';
 
 class Main extends Component {
   render() {
@@ -11,6 +12,9 @@ class Main extends Component {
             return <Home 
               items={this.props.items}
               {...props} />
+          }} />
+          <Route path='/add' render={(props) => {
+            return <AddItem onAdd={this.props.onAdd} {...props} />
           }} />
         </Switch>
       </main>
