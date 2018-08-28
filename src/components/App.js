@@ -13,6 +13,7 @@ class App extends Component {
     };
     
     this.handleAdd = this.handleAdd.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleAdd(e) {
@@ -27,6 +28,15 @@ class App extends Component {
     }
   }
 
+  handleDelete(itemToBeDeleted) {
+    const newItems = this.state.items.filter(item => {
+      return item.id !== itemToBeDeleted.id;
+    });
+    this.setState({
+      items: newItems
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -34,6 +44,7 @@ class App extends Component {
         <Main className="child-main" 
           items={this.state.items}
           onAdd={this.handleAdd}
+          onDelete={this.handleDelete}
         />
       </div>
     );

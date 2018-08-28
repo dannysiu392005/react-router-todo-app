@@ -8,6 +8,7 @@ class Home extends Component {
         <Item className='item-child'
           key={item.id}
           item={item}
+          onDelete={this.props.onDelete}
         />
       );
     });

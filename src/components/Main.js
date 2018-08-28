@@ -11,6 +11,7 @@ class Main extends Component {
           <Route exact path='/' render={(props) => {
             return <Home 
               items={this.props.items}
+              onDelete={this.props.onDelete}
               {...props} />
           }} />
           <Route path='/add' render={(props) => {
