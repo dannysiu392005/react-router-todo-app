@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import AddItem from './AddItem';
 import EditItem from './EditItem';
+import './Main.css';
 
 class Main extends Component {
   render() {
