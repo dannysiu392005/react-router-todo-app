@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import AddItem from './AddItem';
+import EditItem from './EditItem';
 
 class Main extends Component {
   render() {
@@ -12,11 +13,13 @@ class Main extends Component {
             return <Home 
               items={this.props.items}
               onDelete={this.props.onDelete}
-              {...props} />
+              onEdit={this.props.onEdit}
+              {...props} />;
           }} />
           <Route path='/add' render={(props) => {
             return <AddItem onAdd={this.props.onAdd} {...props} />
           }} />
+          <Route path='/edit_item/:id' component={EditItem} />
         </Switch>
       </main>
     );

@@ -14,6 +14,7 @@ class App extends Component {
     
     this.handleAdd = this.handleAdd.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   handleAdd(e) {
@@ -37,6 +38,20 @@ class App extends Component {
     });
   }
 
+  handleEdit(itemToBeEdited) {
+    let newItems = this.state.items;
+    newItems = newItems.map(item => {
+      if (item.id === itemToBeEdited.id) {
+        item.name = itemToBeEdited.name;
+      }
+      return item;
+    });
+
+    this.setState({
+      items: newItems
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -45,6 +60,7 @@ class App extends Component {
           items={this.state.items}
           onAdd={this.handleAdd}
           onDelete={this.handleDelete}
+          onEdit={this.handleEdit}
         />
       </div>
     );
