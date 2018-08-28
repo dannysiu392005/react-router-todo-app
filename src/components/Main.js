@@ -8,7 +8,9 @@ class Main extends Component {
       <main>
         <Switch>
           <Route exact path='/' render={(props) => {
-            return <Home {...props} />
+            return <Home 
+              items={this.props.items}
+              {...props} />
           }} />
         </Switch>
       </main>
